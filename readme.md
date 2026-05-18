@@ -3,10 +3,7 @@
 **CP3 - Arquitetura Orientada a Serviços | Turma: 3ESPX**
 
 **Desenvolvido por:**
-- Carlos Henrique — RM558003
-- Mauricio Alves — RM556214
 - Ian Monteiro — RM558652
-- Bruno Silva — RM550416
 - João Hoffmann — RM550763
 
 ---

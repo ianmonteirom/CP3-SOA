@@ -3,11 +3,8 @@
 **CP3 - Arquitetura Orientada a Serviços | Turma: 3ESPX**
 
 **Desenvolvido por:**
-- Carlos Henrique — RM558003
-- Mauricio Alves — RM556214
 - Ian Monteiro — RM558652
-- Bruno Silva — RM550416
-- João Hoffmann — RM550763
+- Joao Hoffmann — RM550763
 
 ---
 
@@ -73,7 +70,7 @@ ford-competitive-intel/
     │       └── db/migration/
     │           ├── V1__create_veiculos.sql      → Tabela veiculos
     │           ├── V2__create_especificacoes.sql → Tabela especificacoes
-    │           └── V3__seed_ford_ranger_raptor.sql → Dados iniciais
+    │           └── V3__seed.sql → Dados iniciais
 ```
 
 ---
@@ -103,19 +100,12 @@ ford-competitive-intel/
 
 Edite `src/main/resources/application.properties`:
 ```properties
-spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XEPDB1
-spring.datasource.username=ford_user
-spring.datasource.password=ford_pass
+spring.datasource.url=jdbc:oracle:thin:@oracle.fiap.com.br:1521/ORCL
+spring.datasource.username=RM558652
+spring.datasource.password=270402
 ```
 
-### 2. Criar o usuário Oracle (execute como SYSDBA)
-```sql
-CREATE USER ford_user IDENTIFIED BY ford_pass;
-GRANT CONNECT, RESOURCE TO ford_user;
-GRANT UNLIMITED TABLESPACE TO ford_user;
-```
-
-### 3. Compilar e subir
+### 2. Compilar e subir
 ```bash
 mvn clean install
 mvn spring-boot:run

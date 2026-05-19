@@ -70,6 +70,18 @@ public class VeiculoService implements IVeiculoService {
 
     @Override
     @Transactional
+    public VeiculoDTO.Resumo atualizarVeiculo(Long id, VeiculoDTO.Request request) {
+        Veiculo veiculo = buscarEntidade(id);
+        veiculo.setMarca(request.getMarca());
+        veiculo.setModelo(request.getModelo());
+        veiculo.setVersao(request.getVersao());
+        veiculo.setAno(request.getAno());
+        veiculo.setCategoria(request.getCategoria());
+        return toResumo(veiculoRepository.save(veiculo));
+    }
+
+    @Override
+    @Transactional
     public EspecificacaoDTO.Response adicionarEspecificacao(Long veiculoId, EspecificacaoDTO.Request request) {
         if (especificacaoRepository.existsByVeiculoIdAndAtributoIgnoreCase(veiculoId, request.getAtributo())) {
             throw new EspecificacaoDuplicadaException(request.getAtributo());
@@ -107,14 +119,14 @@ public class VeiculoService implements IVeiculoService {
             atributos.add(new ComparacaoDTO.AtributoComparado(
                     espA.getAtributo(), espA.getCategoria(),
                     espA.getValor(), espA.getUnidade(),
-                    espB != null ? espB.getValor() : null,
-                    espB != null ? espB.getUnidade() : null));
+                    espB != null ? espB.getValor() : "Não disponível",
+                    espB != null ? espB.getUnidade() : "-"));
         });
         specsB.forEach((chave, espB) -> {
             if (!specsA.containsKey(chave)) {
                 atributos.add(new ComparacaoDTO.AtributoComparado(
                         espB.getAtributo(), espB.getCategoria(),
-                        null, null, espB.getValor(), espB.getUnidade()));
+                        "Não disponível", "-", espB.getValor(), espB.getUnidade()));
             }
         });
 

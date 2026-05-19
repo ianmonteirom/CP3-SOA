@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(Get-Content \"D:\\\\Estudos\\\\FIAP\\\\3 Ano\\\\SOA\\\\cp3\\\\ford-competitive-intel\\\\src\\\\main\\\\resources\\\\application.properties\")"
-    ]
-  }
-}

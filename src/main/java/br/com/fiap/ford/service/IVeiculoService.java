@@ -18,6 +18,8 @@ public interface IVeiculoService {
 
     VeiculoDTO.Resumo cadastrarVeiculo(VeiculoDTO.Request request);
 
+    VeiculoDTO.Resumo atualizarVeiculo(Long id, VeiculoDTO.Request request);
+
     EspecificacaoDTO.Response adicionarEspecificacao(Long veiculoId, EspecificacaoDTO.Request request);
 
     List<EspecificacaoDTO.Response> listarEspecificacoes(Long veiculoId);

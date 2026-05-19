@@ -69,6 +69,17 @@ public class VeiculoController {
     }
 
     /**
+     * PUT /api/veiculos/{id}
+     * Atualiza os dados cadastrais de um veiculo existente.
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<VeiculoDTO.Resumo> atualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody VeiculoDTO.Request request) {
+        return ResponseEntity.ok(service.atualizarVeiculo(id, request));
+    }
+
+    /**
      * POST /api/veiculos/{id}/especificacoes
      * Adiciona uma especificacao tecnica a um veiculo.
      */
